@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You're My Crush 💖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe4f0, #ffe9ec, #fff0f5);
+      min-height: 100vh;
+      font-family: 'Dancing Script', cursive;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .response {
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+      text-align: center;
+      color: #e91e63;
+      display: none;
+    }
+
+    #surprise {
+      display: none;
+      font-size: 1.7rem;
+      margin-top: 1.5rem;
+      color: #ff3399;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .morning {
+      font-size: 2.5rem;
+      color: #ff66b2;
+      margin-top: 20px;
+      animation: slideDown 1.2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts -->
+  <script>
+    for (let i = 0; i < 40; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      heart.style.background = ['#ff4d4d', '#ff99cc', '#ff3366'][Math.floor(Math.random() * 3)];
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <!-- New Good Morning Message -->
+  <div class="morning">Good Morning, My Beautiful Badap🌞💕</div>
+
+  <!-- Flirty Yes/No Caption -->
+  <h1 class="text-3xl md:text-5xl font-bold text-pink-500 text-center px-4 mt-6 mb-6">
+    I had a dream about my crush last night… and now she’s reading this ☺️🌼
+    
+    So... will you be my crush ? please🥺🙏💞
+  </h1>
+
+  <!-- Yes/No Buttons -->
+  <div class="text-center mt-4">
+    <p class="text-xl text-gray-700 mb-4">Choose honestly 😌</p>
+    <button onclick="showResponse(true)" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full m-2 shadow-lg">Yes 💖</button>
+    <button onclick="showResponse(false)" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-full m-2 shadow-lg">No 🙃</button>
+  </div>
+
+  <!-- Response Messages -->
+  <div id="responseYes" class="response">Aww! You just made my day, Love you💖�💫</div>
+  <div id="responseNo" class="response">It’s okay, I’ll still write poems about you anyway 😅🌸</div>
+
+  <!-- Click to Reveal Surprise -->
+  <div class="text-center mt-8">
+    <button onclick="revealSurprise()" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-6 rounded-full shadow-md">Click to Reveal a Surprise 😍</button>
+    <div id="surprise">You already live rent-free in my heart Badap 😍😜❤️💭</div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function showResponse(isYes) {
+      document.getElementById("responseYes").style.display = isYes ? "block" : "none";
+      document.getElementById("responseNo").style.display = !isYes ? "block" : "none";
+    }
+
+    function revealSurprise() {
+      document.getElementById("surprise").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
